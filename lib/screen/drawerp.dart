@@ -1,6 +1,9 @@
+import 'package:buscappme/domain/services/auth_service.dart';
+import 'package:buscappme/screen/login/tab_login_screen.dart';
 import 'package:buscappme/screen/mensajes.dart';
 import 'package:buscappme/widgets/animaciondemo.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class DrawerScreen extends StatelessWidget {
   const DrawerScreen({super.key});
@@ -91,17 +94,18 @@ class DrawerScreen extends StatelessWidget {
     },
     {
       'leading': Icon(
-        Icons.info_outline,
+        Icons.logout,
         color: Color.fromARGB(255, 247, 114, 90),
       ),
-      'title': 'Spam',
-      'trailing': Icon(Icons.chevron_right),
-      'action_id': 9,
+      'title': 'Cerrar Sesión',
+      'action_id': 0,
     },
   ];
 
   @override
   Widget build(BuildContext context) {
+    final authService = Provider.of<AuthService>(context, listen: false);
+
     return SafeArea(
       child: SizedBox(
         width: 260,
@@ -175,6 +179,15 @@ class DrawerScreen extends StatelessWidget {
                       //     ),
                       //   );
                     }
+                    else if (sideMenuData['action_id'] == 0) {
+                      authService.cerrarSesion();
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const TabLoginScreen(),
+                          ),
+                          (route) => false);
+                      }
                   },
                 );
               }).toList(),

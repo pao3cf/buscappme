@@ -1,8 +1,26 @@
-import 'package:buscappme/screen/homescreen.dart';
+
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'package:buscappme/routes/routes.dart';
+import 'package:buscappme/domain/services/snackbar_service.dart';
+import 'package:buscappme/domain/providers/login_provider.dart';
+import 'domain/services/auth_service.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => LoginProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => AuthService(),
+        ),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -15,27 +33,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const HomeScreen(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home'),
-        centerTitle: true,
-      ),
-      body: const Center(),
+      scaffoldMessengerKey: SnackbarService.msgkey,
+      onGenerateRoute: MyRoutes.generateRoute,
+      initialRoute: MyRoutes.rVERIFY,
     );
   }
 }
