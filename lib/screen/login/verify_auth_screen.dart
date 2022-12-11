@@ -1,3 +1,4 @@
+import 'package:buscappme/onboarding/onboarding_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -36,7 +37,7 @@ class VerifyAuthScreen extends StatelessWidget {
                 Navigator.pushReplacement(
                     context,
                     PageRouteBuilder(
-                      pageBuilder: (_, __, ___) => const HomeScreen(),
+                      pageBuilder: (_, __, ___) => const OnboardingPage(),
                       transitionDuration: const Duration(seconds: 0),
                     ));
               });

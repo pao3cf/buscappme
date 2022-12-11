@@ -1,27 +1,30 @@
+import 'package:buscappme/onboarding/onboarding_page.dart';
 import 'package:flutter/material.dart';
 import 'package:buscappme/screen/index_screens.dart';
 
-
 class MyRoutes {
+  static const String rONBOARDING = '/onboarding';
   static const String rLOGIN = '/login';
   static const String rVERIFY = '/verify';
   static const String rHOME = '/home';
 
-
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case ('/login'):
-        return MaterialPageRoute(builder: (_) => const TabLoginScreen());
+      case ('/onboarding'):
+        return MaterialPageRoute(builder: (context) => const OnboardingPage());
 
       case ('/verify'):
-        return MaterialPageRoute(builder: (_) => const VerifyAuthScreen());
+        return MaterialPageRoute(
+            builder: (context) => const VerifyAuthScreen());
+
+      case ('/login'):
+        return MaterialPageRoute(builder: (context) => const TabLoginScreen());
 
       case ('/home'):
-        return MaterialPageRoute(builder: (_) => const HomeScreen());
+        return MaterialPageRoute(builder: (context) => const HomeScreen());
 
-      
       default:
-        return MaterialPageRoute(builder: (_) => const HomeScreen());
+        return MaterialPageRoute(builder: (context) => const HomeScreen());
     }
   }
 }

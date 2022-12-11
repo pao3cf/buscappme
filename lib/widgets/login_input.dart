@@ -27,7 +27,8 @@ class _LoginInputState extends State<LoginInput> {
     final loginProvider = Provider.of<LoginProvider>(context);
 
     return TextFormField(
-      controller: widget.controller,/*  */
+      controller: widget.controller,
+      /*  */
       cursorColor: Colors.blue,
       style: const TextStyle(
         color: Colors.black,
@@ -35,33 +36,42 @@ class _LoginInputState extends State<LoginInput> {
       ),
       autocorrect: false,
       obscureText: _ispassword && widget.input == 'password',
-      keyboardType: widget.input == 'email' ? TextInputType.emailAddress : TextInputType.text,
-      decoration: _buildDecoration (
-        hintText:  widget.input == 'email' ? 'Correo@electrónico.com' : 'Password',
+      keyboardType: widget.input == 'email'
+          ? TextInputType.emailAddress
+          : TextInputType.text,
+      decoration: _buildDecoration(
+        hintText:
+            widget.input == 'email' ? 'Correo@electrónico.com' : 'Password',
         prefixIcon: Icon(
           widget.input == 'email' ? Icons.email_rounded : Icons.security,
           color: Colors.yellow,
         ),
-        suffixIcon: widget.input == 'password' ? InkWell(
-          onTap: _viewPassword,
-          child: Icon(
-            _ispassword
-                ? Icons.visibility_rounded
-                : Icons.visibility_off_rounded,
-            color: Colors.black,
-          ),
-        )
-        : null,
+        suffixIcon: widget.input == 'password'
+            ? InkWell(
+                onTap: _viewPassword,
+                child: Icon(
+                  _ispassword
+                      ? Icons.visibility_rounded
+                      : Icons.visibility_off_rounded,
+                  color: Colors.black,
+                ),
+              )
+            : null,
       ),
       onChanged: (value) => loginProvider.setValueINput(value, widget.input),
       validator: (value) {
         if (widget.input == 'password') {
-          return (value != null && value.length >= 8) ? null : 'La contraseña debe contar con más de 8 caracteres';
+          return (value != null && value.length >= 8)
+              ? null
+              : 'La contraseña debe contar con más de 8 caracteres';
         }
-        String pattern = r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+        String pattern =
+            r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
         RegExp regExp = RegExp(pattern);
 
-        return regExp.hasMatch(value ?? '') ? null : 'Correo ingresado no es válido.';
+        return regExp.hasMatch(value ?? '')
+            ? null
+            : 'Correo ingresado no es válido.';
       },
     );
   }
@@ -74,11 +84,11 @@ InputDecoration _buildDecoration({
 }) {
   return InputDecoration(
     enabledBorder: OutlineInputBorder(
-      borderSide: BorderSide(width: 2, color: Colors.blue),
+      borderSide: const BorderSide(width: 2, color: Colors.blue),
       borderRadius: BorderRadius.circular(15),
     ),
     focusedBorder: OutlineInputBorder(
-      borderSide: BorderSide(width: 2, color: Colors.blue),
+      borderSide: const BorderSide(width: 2, color: Colors.blue),
       borderRadius: BorderRadius.circular(15),
     ),
     errorBorder: OutlineInputBorder(
@@ -86,7 +96,7 @@ InputDecoration _buildDecoration({
       borderRadius: BorderRadius.circular(15),
     ),
     border: OutlineInputBorder(
-      borderSide: BorderSide(width: 2, color: Colors.blue),
+      borderSide: const BorderSide(width: 2, color: Colors.blue),
       borderRadius: BorderRadius.circular(15),
     ),
     filled: true,

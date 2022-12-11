@@ -1,9 +1,7 @@
-
+import 'package:buscappme/onboarding/onboarding_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import 'package:buscappme/routes/routes.dart';
-import 'package:buscappme/domain/services/snackbar_service.dart';
+// import 'package:buscappme/domain/services/snackbar_service.dart';
 import 'package:buscappme/domain/providers/login_provider.dart';
 import 'domain/services/auth_service.dart';
 
@@ -29,13 +27,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.red,
+        primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      scaffoldMessengerKey: SnackbarService.msgkey,
-      onGenerateRoute: MyRoutes.generateRoute,
-      initialRoute: MyRoutes.rVERIFY,
+      // scaffoldMessengerKey: SnackbarService.msgkey,
+      // onGenerateRoute: MyRoutes.generateRoute,
+      // initialRoute: MyRoutes.rVERIFY,
+      home: const OnboardingPage(),
     );
   }
 }
