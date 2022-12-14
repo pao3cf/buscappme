@@ -1,8 +1,6 @@
 import 'package:buscappme/screen/login/verify_auth_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
-// import 'package:buscappme/routes/routes.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({Key? key}) : super(key: key);
@@ -30,17 +28,17 @@ final List<dynamic> texts = [
   {
     "title": 'Busca a personas',
     "subtitle": "Buscappme te ayuda a encontrar a esa persona que se perdió.",
-    "img": 'assets/imgs/buscar.json',
+    "img": 'assets/buscar.jpg',
   },
   {
     "title": 'Ayuda continua',
     "subtitle": "Busca, encuentra y ayuda a otras personas.",
-    "img": 'assets/imgs/ayuda.json',
+    "img": 'assets/ayudar.jpg',
   },
   {
     "title": 'Devuelve la sonrisa',
     "subtitle": "Ayuda a que se reúnan con sus seres queridos.",
-    "img": 'assets/imgs/celebrar.json',
+    "img": 'assets/feliz.jpg',
   },
 ];
 
@@ -101,7 +99,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: Column(
                     children: [
-                      Lottie.asset(texto['img']),
+                      Image.asset(texto['img']),
                       const SizedBox(height: 20.0),
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 60.0),
@@ -139,7 +137,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     decoration: BoxDecoration(
                       color: numberText == index
                           ? primaryColor
-                          : const Color.fromARGB(255, 246, 252, 193),
+                          : const Color.fromARGB(255, 248, 232, 4),
                       borderRadius: BorderRadius.circular(3),
                     ),
                   ),
@@ -152,21 +150,3 @@ class _OnboardingPageState extends State<OnboardingPage> {
     );
   }
 }
-
-// class ImagePage extends StatelessWidget {
-//   const ImagePage({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final sizeHeight = MediaQuery.of(context).size.height;
-
-//     return Container(
-//       height: sizeHeight * 0.60,
-//       decoration: const BoxDecoration(
-//         image: DecorationImage(
-//             image: NetworkImage('https://i.ibb.co/mT8F10K/fondito.jpg'),
-//             fit: BoxFit.cover),
-//       ),
-//     );
-//   }
-// }

@@ -11,10 +11,10 @@ class DrawerScreen extends StatelessWidget {
   final List drawerMenuListname = const [
     {
       'leading': Icon(
-        Icons.inbox,
-        color: Color.fromARGB(255, 138, 145, 146),
+        Icons.person_pin,
+        color: Color.fromARGB(255, 11, 61, 168),
       ),
-      'title': 'Todos los mensajes',
+      'title': 'Personas desaparecidas',
       'trailing': Icon(
         Icons.chevron_right,
       ),
@@ -23,7 +23,7 @@ class DrawerScreen extends StatelessWidget {
     {
       'leading': Icon(
         Icons.mail_outlined,
-        color: Color.fromARGB(255, 248, 152, 8),
+        color: Color.fromARGB(255, 11, 61, 168),
       ),
       'title': 'Principal',
       'trailing': Icon(Icons.chevron_right),
@@ -32,7 +32,7 @@ class DrawerScreen extends StatelessWidget {
     {
       'leading': Icon(
         Icons.person_add_sharp,
-        color: Color.fromARGB(255, 37, 150, 106),
+        color: Color.fromARGB(255, 11, 61, 168),
       ),
       'title': 'Social',
       'trailing': Icon(Icons.chevron_right),
@@ -41,62 +41,59 @@ class DrawerScreen extends StatelessWidget {
     {
       'leading': Icon(
         Icons.local_offer,
-        color: Color.fromARGB(255, 227, 19, 227),
+        color: Color.fromARGB(255, 11, 61, 168),
       ),
-      'title': 'Promociones',
+      'title': 'Anuncios',
       'trailing': Icon(Icons.chevron_right),
       'action_id': 4,
     },
     {
       'leading': Icon(
         Icons.star_rate_rounded,
-        color: Color.fromARGB(255, 255, 251, 2),
+        color: Color.fromARGB(255, 11, 61, 168),
       ),
       'title': 'Favorito',
       'trailing': Icon(Icons.chevron_right),
       'action_id': 5,
     },
+    // {
+    //   'leading': Icon(
+    //     Icons.label_important,
+    //     color: Color.fromARGB(255, 253, 2, 2),
+    //   ),
+    //   'title': 'Importante',
+    //   'trailing': Icon(Icons.chevron_right),
+    //   'action_id': 6,
+    // },
+    // {
+    //   'leading': Icon(
+    //     Icons.send,
+    //     color: Color.fromARGB(255, 19, 227, 36),
+    //   ),
+    //   'title': 'Enviar',
+    //   'trailing': Icon(Icons.chevron_right),
+    //   'action_id': 6,
+    // },
+    // {
+    //   'leading': Icon(
+    //     Icons.outbox,
+    //     color: Color(0xFF13C0E3),
+    //   ),
+    //   'title': 'Mensajes enviados',
+    //   'trailing': Icon(Icons.chevron_right),
+    //   'action_id': 7,
+    // },
+    // {
+    //   'leading': Icon(
+    //     Icons.insert_drive_file_sharp,
+    //     color: Color.fromARGB(255, 11, 61, 168),
+    //   ),
+    //   'title': 'Documentos',
+    //   'trailing': Icon(Icons.chevron_right),
+    //   'action_id': 8,
+    // },
     {
-      'leading': Icon(
-        Icons.label_important,
-        color: Color.fromARGB(255, 253, 2, 2),
-      ),
-      'title': 'Importante',
-      'trailing': Icon(Icons.chevron_right),
-      'action_id': 6,
-    },
-    {
-      'leading': Icon(
-        Icons.send,
-        color: Color.fromARGB(255, 19, 227, 36),
-      ),
-      'title': 'Enviar',
-      'trailing': Icon(Icons.chevron_right),
-      'action_id': 6,
-    },
-    {
-      'leading': Icon(
-        Icons.outbox,
-        color: Color(0xFF13C0E3),
-      ),
-      'title': 'Mensajes enviados',
-      'trailing': Icon(Icons.chevron_right),
-      'action_id': 7,
-    },
-    {
-      'leading': Icon(
-        Icons.insert_drive_file_sharp,
-        color: Color.fromARGB(255, 11, 61, 168),
-      ),
-      'title': 'Documentos',
-      'trailing': Icon(Icons.chevron_right),
-      'action_id': 8,
-    },
-    {
-      'leading': Icon(
-        Icons.logout,
-        color: Color.fromARGB(255, 247, 114, 90),
-      ),
+      'leading': Icon(Icons.logout, color: Color.fromARGB(255, 11, 61, 168)),
       'title': 'Cerrar Sesión',
       'action_id': 0,
     },
@@ -117,25 +114,25 @@ class DrawerScreen extends StatelessWidget {
                   child: CircleAvatar(
                     radius: 30,
                     backgroundImage: NetworkImage(
-                        'https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_960_720.jpg'),
+                        'https://drive.google.com/file/d/11uCr07bYlykuTBxG3CfWT3ZMSBDc7uVV/view?usp=share_link'),
                   ),
                 ),
                 title: Text(
-                  'Paola Carnero',
+                  'Buscappme',
                   style: TextStyle(
-                    color: Color.fromARGB(255, 253, 112, 112),
+                    color: Color.fromARGB(255, 38, 4, 190),
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                subtitle: Text(
-                  'apcfrancia@gmail.com',
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 1, 43, 78),
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                // subtitle: Text(
+                //   'buscappme@gmail.com',
+                //   style: TextStyle(
+                //     color: Color.fromARGB(255, 1, 43, 78),
+                //     fontSize: 14,
+                //     fontWeight: FontWeight.bold,
+                //   ),
+                // ),
               ),
               const SizedBox(
                 height: 1,
@@ -178,8 +175,7 @@ class DrawerScreen extends StatelessWidget {
                       //       builder: (context) => const Dropdownbuttonformfiel(),
                       //     ),
                       //   );
-                    }
-                    else if (sideMenuData['action_id'] == 0) {
+                    } else if (sideMenuData['action_id'] == 0) {
                       authService.cerrarSesion();
                       Navigator.pushAndRemoveUntil(
                           context,
@@ -187,7 +183,7 @@ class DrawerScreen extends StatelessWidget {
                             builder: (context) => const TabLoginScreen(),
                           ),
                           (route) => false);
-                      }
+                    }
                   },
                 );
               }).toList(),
