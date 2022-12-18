@@ -1,4 +1,5 @@
 import 'package:buscappme/domain/services/auth_service.dart';
+import 'package:buscappme/screen/busquedas/publicar_busqueda_screen.dart';
 import 'package:buscappme/screen/login/tab_login_screen.dart';
 import 'package:buscappme/screen/frase.dart';
 import 'package:buscappme/anuncios/anuncios.dart';
@@ -148,7 +149,7 @@ class DrawerScreen extends StatelessWidget {
                     if (sideMenuData['action_id'] == 1) {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => const FraseScreen(),
+                          builder: (context) => const PublicarBusquedaScreen(),
                         ),
                       );
                     } else if (sideMenuData['action_id'] == 4) {
@@ -157,12 +158,12 @@ class DrawerScreen extends StatelessWidget {
                           builder: (context) => const AnunciosDemo(),
                         ),
                       );
-                      // } else if (sideMenuData['action_id'] == 2) {
-                      //   Navigator.of(context).push(
-                      //     MaterialPageRoute(
-                      //       builder: (context) => const asdsadsdsd(),
-                      //     ),
-                      //   );
+                    } else if (sideMenuData['action_id'] == 2) {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const FraseScreen(),
+                        ),
+                      );
                       // } else if (sideMenuData['action_id'] == 3) {
                       //   Navigator.of(context).push(
                       //     MaterialPageRoute(
