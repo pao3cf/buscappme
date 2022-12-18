@@ -1,7 +1,7 @@
 import 'package:buscappme/domain/services/auth_service.dart';
 import 'package:buscappme/screen/login/tab_login_screen.dart';
-import 'package:buscappme/screen/mensajes.dart';
-import 'package:buscappme/widgets/animaciondemo.dart';
+import 'package:buscappme/screen/frase.dart';
+import 'package:buscappme/anuncios/anuncios.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -148,13 +148,13 @@ class DrawerScreen extends StatelessWidget {
                     if (sideMenuData['action_id'] == 1) {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => const MensajesScreen(),
+                          builder: (context) => const FraseScreen(),
                         ),
                       );
                     } else if (sideMenuData['action_id'] == 4) {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => const AnimacionDemo(),
+                          builder: (context) => const AnunciosDemo(),
                         ),
                       );
                       // } else if (sideMenuData['action_id'] == 2) {

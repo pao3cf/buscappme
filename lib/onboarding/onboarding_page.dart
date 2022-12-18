@@ -52,7 +52,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: const Color.fromARGB(255, 18, 5, 202),
         actions: [
           Center(
             child: Padding(
@@ -71,7 +71,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   style: GoogleFonts.lora(
                     fontSize: 15,
                     fontWeight: FontWeight.w700,
-                    color: const Color.fromARGB(255, 36, 4, 214),
+                    color: Colors.amber,
                   ),
                 ),
               ),
@@ -109,7 +109,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                           textAlign: TextAlign.center,
                         ),
                       ),
-                      const SizedBox(height: 15.0),
+                      const SizedBox(height: 20.0),
                       Text(
                         texto['subtitle'],
                         style: styleTextSubTitle,
