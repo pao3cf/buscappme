@@ -7,6 +7,7 @@ class MyRoutes {
   static const String rLOGIN = '/login';
   static const String rVERIFY = '/verify';
   static const String rHOME = '/home';
+  static const String rPUBLICARBUSQUEDA = '/publicar_busqueda';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -22,6 +23,9 @@ class MyRoutes {
 
       case ('/home'):
         return MaterialPageRoute(builder: (context) => const HomeScreen());
+
+      case ('/publicar_busqueda'):
+        return MaterialPageRoute(builder: (context) => const PublicarBusquedaScreen());
 
       default:
         return MaterialPageRoute(builder: (context) => const HomeScreen());

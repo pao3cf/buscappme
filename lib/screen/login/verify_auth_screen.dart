@@ -28,7 +28,7 @@ class VerifyAuthScreen extends StatelessWidget {
                 Navigator.pushReplacement(
                     context,
                     PageRouteBuilder(
-                      pageBuilder: (_, __, ___) => const TabLoginScreen(),
+                      pageBuilder: (_, __, ___) => const OnboardingPage(),
                       transitionDuration: const Duration(seconds: 0),
                     ));
               });
@@ -37,7 +37,7 @@ class VerifyAuthScreen extends StatelessWidget {
                 Navigator.pushReplacement(
                     context,
                     PageRouteBuilder(
-                      pageBuilder: (_, __, ___) => const OnboardingPage(),
+                      pageBuilder: (_, __, ___) => const HomeScreen(),
                       transitionDuration: const Duration(seconds: 0),
                     ));
               });

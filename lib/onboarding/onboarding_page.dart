@@ -1,3 +1,4 @@
+import 'package:buscappme/screen/index_screens.dart';
 import 'package:buscappme/screen/login/verify_auth_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -52,7 +53,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.white,
+        // backgroundColor: Colors.white,
         actions: [
           Center(
             child: Padding(
@@ -62,7 +63,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const VerifyAuthScreen(),
+                        builder: (context) => const TabLoginScreen(),
                       ));
                   // Navigator.pushReplacementNamed(context, MyRoutes.rLOGIN);
                 },

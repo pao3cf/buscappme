@@ -1,8 +1,18 @@
-import 'package:buscappme/screen/drawer/drawerp.dart';
+import 'package:buscappme/domain/providers/theme_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:buscappme/screen/drawer/drawerp.dart';
+import 'package:buscappme/routes/routes.dart';
+import 'package:buscappme/preferences/preferences.dart';
+import 'package:provider/provider.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,6 +28,20 @@ class HomeScreen extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
+        actions: [
+          Switch.adaptive(
+            value: Preferences.theme,
+            activeColor:
+                const Color.fromARGB(255, 255, 234, 193),
+            activeTrackColor: Colors.white,
+            onChanged: (value) {
+              Preferences.theme = value;
+              final themeP = Provider.of<ThemeProvider>(context, listen: false);
+              value ? themeP.setOscuro() : themeP.setClaro();
+              setState(() {});
+            }
+          ),
+        ],
       ),
       body: Row(
         children: [
@@ -171,6 +195,13 @@ class HomeScreen extends StatelessWidget {
             ),
           )
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushReplacementNamed(context, MyRoutes.rPUBLICARBUSQUEDA);
+        },
+        backgroundColor: Colors.blue,
+        child: const Icon(Icons.add),
       ),
     );
   }
