@@ -17,9 +17,9 @@ class _PublicarBusquedaScreenState extends State<PublicarBusquedaScreen> {
     return Scaffold(
       drawer: const DrawerScreen(),
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 245, 159, 253),
+        backgroundColor: const Color.fromARGB(255, 11, 61, 168),
         centerTitle: true,
-        title: const Text( 'Publicar Búsqueda' ),
+        title: const Text('Publicar Búsqueda'),
       ),
       body: Column(
         children: [
@@ -27,13 +27,14 @@ class _PublicarBusquedaScreenState extends State<PublicarBusquedaScreen> {
             children: [
               const Text('Seleccione una imagen'),
               IconButton(
-                onPressed: () async {
-                  final XFile? image = await ImagePicker().pickImage(source: ImageSource.gallery);
-                  setState(() {
-                    _selectedImage = image;
-                  });
-                }, 
-                icon: const Icon(Icons.browse_gallery))
+                  onPressed: () async {
+                    final XFile? image = await ImagePicker()
+                        .pickImage(source: ImageSource.gallery);
+                    setState(() {
+                      _selectedImage = image;
+                    });
+                  },
+                  icon: const Icon(Icons.browse_gallery))
             ],
           )
         ],
