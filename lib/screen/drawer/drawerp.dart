@@ -114,8 +114,7 @@ class DrawerScreen extends StatelessWidget {
                 leading: SizedBox(
                   child: CircleAvatar(
                     radius: 30,
-                    backgroundImage: NetworkImage(
-                        'https://drive.google.com/file/d/11uCr07bYlykuTBxG3CfWT3ZMSBDc7uVV/view?usp=share_link'),
+                    backgroundImage: AssetImage('assets/logo.png'),
                   ),
                 ),
                 title: Text(

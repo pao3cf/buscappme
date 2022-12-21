@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -41,7 +40,8 @@ class StorageImageProvider extends ChangeNotifier {
       "nombre": "Mónica",
       "edad": "14",
       "ciudad": "Lima",
-      "ultima_visto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "ultima_visto":
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "comunicarse_con": "999999999",
       "fotos": nameImage
     });
@@ -157,7 +157,8 @@ class StorageImageProvider extends ChangeNotifier {
 
     final newPath = (image!.path == ruta0) ? ruta1 : ruta2;
 
-    final response = await client.storage.from('buscappme-storage').upload(newPath, file);
+    final response =
+        await client.storage.from('buscappme-storage').upload(newPath, file);
     activeCleanImage();
 
     print(response);
