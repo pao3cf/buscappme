@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:buscappme/domain/models/busqueda_model.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -8,6 +9,9 @@ import 'package:http/http.dart' as http;
 class StorageImageProvider extends ChangeNotifier {
   File? image;
   String? nameImage;
+
+  late Busqueda seleccionarBusqueda;
+
 
   //BD
   String urlbase = 'https://tfscdnfyqymsvuhirhdi.supabase.co/rest/v1/busquedas';
@@ -25,7 +29,7 @@ class StorageImageProvider extends ChangeNotifier {
   //=======================================================
   //API
 
-  Future<String> guardarDB(BuildContext context) async {
+  Future<String> guardarDB(BuildContext context, Busqueda busqueda) async {
     final url = Uri.parse(urlbase);
     final String msg;
 
@@ -36,17 +40,11 @@ class StorageImageProvider extends ChangeNotifier {
       'Prefer': 'return=minimal'
     };
 
-    final body = jsonEncode({
-      "nombre": "Mónica",
-      "edad": "14",
-      "ciudad": "Lima",
-      "ultima_visto":
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "comunicarse_con": "999999999",
-      "fotos": nameImage
-    });
+    busqueda.fotos = nameImage;
 
-    final response = await http.post(url, body: body, headers: header);
+    print(busqueda.toJson());
+
+    final response = await http.post(url, body: busqueda.toJson(), headers: header);
 
     if (response.statusCode != 201) {
       print(response.statusCode);
@@ -107,7 +105,7 @@ class StorageImageProvider extends ChangeNotifier {
   //nuevo
   //=======================================================
 
-  void alertCustom(BuildContext context) {
+  void alertCustom(BuildContext context, Busqueda busqueda) {
     showDialog(
       context: context,
       builder: (BuildContext context) => AlertDialog(
@@ -134,7 +132,7 @@ class StorageImageProvider extends ChangeNotifier {
     ).then((value) => {
           if (value == 'true')
             {
-              guardarDB(context),
+              guardarDB(context, busqueda),
             }
         });
   }
