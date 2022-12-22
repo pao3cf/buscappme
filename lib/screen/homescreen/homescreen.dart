@@ -55,14 +55,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   Text(
                     'Costo',
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 247, 222, 4),
                     ),
                   ),
                   Text(
                     'S/. 0',
                     style: TextStyle(
-                      fontSize: 32,
+                      fontSize: 40,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 252, 250, 251),
                     ),
