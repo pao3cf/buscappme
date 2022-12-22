@@ -1,4 +1,5 @@
 import 'package:buscappme/onboarding/onboarding_page.dart';
+import 'package:buscappme/screen/busquedas/listar_busquedas_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:buscappme/screen/index_screens.dart';
 
@@ -8,6 +9,7 @@ class MyRoutes {
   static const String rVERIFY = '/verify';
   static const String rHOME = '/home';
   static const String rPUBLICARBUSQUEDA = '/publicar_busqueda';
+  static const String rLISTARBUSQUEDA = '/listar_busquedas';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -26,6 +28,9 @@ class MyRoutes {
 
       case ('/publicar_busqueda'):
         return MaterialPageRoute(builder: (context) => const PublicarBusquedaScreen());
+
+      case ('/listar_busquedas'):
+        return MaterialPageRoute(builder: (context) => const ListarBusquedasScreen());
 
       default:
         return MaterialPageRoute(builder: (context) => const HomeScreen());

@@ -4,14 +4,10 @@ import 'package:buscappme/domain/models/busqueda_model.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:http/http.dart' as http;
 
-class StorageImageProvider extends ChangeNotifier {
+class StorageImageProvider with ChangeNotifier {
   File? image;
   String? nameImage;
-
-  late Busqueda seleccionarBusqueda;
-
 
   //BD
   String urlbase = 'https://tfscdnfyqymsvuhirhdi.supabase.co/rest/v1/busquedas';
@@ -25,117 +21,6 @@ class StorageImageProvider extends ChangeNotifier {
     'https://tfscdnfyqymsvuhirhdi.supabase.co',
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRmc2NkbmZ5cXltc3Z1aGlyaGRpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzE2MzI4NjEsImV4cCI6MTk4NzIwODg2MX0._Gwnv4hM69kBd_ai_dQ3TmpJ2Xl1rmNQvuoDpD24xIE',
   );
-
-  //=======================================================
-  //API
-
-  Future<String> guardarDB(BuildContext context, Busqueda busqueda) async {
-    final url = Uri.parse(urlbase);
-    final String msg;
-
-    Map<String, String> header = {
-      'apikey': keydb,
-      'Authorization': autorization,
-      'Content-Type': 'application/json',
-      'Prefer': 'return=minimal'
-    };
-
-    busqueda.fotos = nameImage;
-
-    print(busqueda.toJson());
-
-    final response = await http.post(url, body: busqueda.toJson(), headers: header);
-
-    if (response.statusCode != 201) {
-      print(response.statusCode);
-      msg = 'NO SE GUARDÓ CORRECTAMENTE';
-      showDialog(
-        context: context,
-        builder: (BuildContext context) => AlertDialog(
-          title: const Icon(
-            Icons.warning_amber_rounded,
-            color: Colors.red,
-            size: 100,
-          ),
-          content: Text(
-            msg,
-            textAlign: TextAlign.center,
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop('true');
-                activeCleanImage();
-              },
-              child: const Text('Aceptar'),
-            )
-          ],
-        ),
-      );
-    } else {
-      print('MSG=> SE GUARDO CORRECTAMENTE');
-      msg = 'SE GUARDO CORRECTAMENTE';
-      subirImageStorage();
-      showDialog(
-        context: context,
-        builder: (BuildContext context) => AlertDialog(
-          title: const Icon(
-            Icons.check,
-            color: Colors.amber,
-            size: 100,
-          ),
-          content: Text(
-            msg,
-            textAlign: TextAlign.center,
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop('true');
-              },
-              child: const Text('Aceptar'),
-            )
-          ],
-        ),
-      );
-    }
-    return msg;
-  }
-
-  //nuevo
-  //=======================================================
-
-  void alertCustom(BuildContext context, Busqueda busqueda) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) => AlertDialog(
-        title: const Icon(
-          Icons.notification_important,
-          color: Colors.amber,
-          size: 100,
-        ),
-        content: const Text(
-          'Seguro de guardar?',
-          textAlign: TextAlign.center,
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop('false'),
-            child: const Text('Cancelar'),
-          ),
-          TextButton(
-            onPressed: () => Navigator.of(context).pop('true'),
-            child: const Text('Aceptar'),
-          ),
-        ],
-      ),
-    ).then((value) => {
-          if (value == 'true')
-            {
-              guardarDB(context, busqueda),
-            }
-        });
-  }
 
   //=======================================================
 
@@ -155,12 +40,9 @@ class StorageImageProvider extends ChangeNotifier {
 
     final newPath = (image!.path == ruta0) ? ruta1 : ruta2;
 
-    final response =
-        await client.storage.from('buscappme-storage').upload(newPath, file);
+    final response = await client.storage.from('buscappme-storage').upload(newPath, file);
+
     activeCleanImage();
-
-    print(response);
-
     notifyListeners();
   }
 

@@ -3,7 +3,7 @@ import 'dart:convert';
 class Busqueda {
   int? id;
   String nombre;
-  String edad;
+  int? edad;
   String ciudad;
   String ultimaVisto;
   String comunicarseCon;

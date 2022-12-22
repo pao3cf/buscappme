@@ -1,5 +1,6 @@
 import 'package:buscappme/domain/providers/storage_provider.dart';
 import 'package:buscappme/domain/providers/theme_provider.dart';
+import 'package:buscappme/domain/services/busqueda_service.dart';
 // import 'package:buscappme/onboarding/onboarding_page.dart';
 import 'package:buscappme/preferences/preferences.dart';
 import 'package:buscappme/routes/routes.dart';
@@ -27,6 +28,9 @@ void main() async {
         ),
         ChangeNotifierProvider(
           create: (_) => StorageImageProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => BusquedaService(),
         )
       ],
       child: const MyApp(),
