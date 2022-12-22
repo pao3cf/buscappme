@@ -1,4 +1,3 @@
-import 'package:buscappme/domain/providers/storage_provider.dart';
 import 'package:buscappme/domain/providers/theme_provider.dart';
 // import 'package:buscappme/onboarding/onboarding_page.dart';
 import 'package:buscappme/preferences/preferences.dart';
@@ -25,9 +24,6 @@ void main() async {
         ChangeNotifierProvider(
           create: (_) => AuthService(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => StorageImageProvider(),
-        )
       ],
       child: const MyApp(),
     ),

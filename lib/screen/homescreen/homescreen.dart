@@ -18,12 +18,12 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       drawer: const DrawerScreen(),
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 38, 4, 190),
+        backgroundColor: const Color.fromARGB(255, 245, 159, 253),
         centerTitle: true,
         title: const Text(
-          'Requisitos',
+          'Perfil',
           style: TextStyle(
-            color: Color.fromARGB(255, 255, 230, 3),
+            color: Color.fromARGB(255, 54, 1, 63),
             fontSize: 30,
             fontWeight: FontWeight.bold,
           ),
@@ -47,13 +47,13 @@ class _HomeScreenState extends State<HomeScreen> {
           Expanded(
             child: Container(
               height: double.infinity,
-              color: const Color.fromARGB(255, 81, 124, 243),
+              color: const Color.fromARGB(255, 255, 188, 183),
               child: Center(
                   child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
                   Text(
-                    'Costo',
+                    'Mi Edad:',
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
@@ -61,11 +61,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   Text(
-                    'S/. 0',
+                    '30',
                     style: TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 252, 250, 251),
+                      color: Color.fromARGB(255, 255, 4, 100),
                     ),
                   ),
                 ],
@@ -76,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
             flex: 2,
             child: Container(
               height: double.infinity,
-              color: const Color.fromARGB(255, 253, 246, 177),
+              color: const Color.fromARGB(255, 231, 216, 172),
               child: Center(
                 child: SingleChildScrollView(
                   child: Column(
@@ -85,21 +85,22 @@ class _HomeScreenState extends State<HomeScreen> {
                       const SizedBox(
                         child: CircleAvatar(
                           radius: 60,
-                          backgroundImage: AssetImage('assets/logo.png'),
+                          backgroundImage: NetworkImage(
+                              'https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_960_720.jpg'),
                         ),
                       ),
                       const Text(
-                        'Necesitamos los',
+                        'Angelica Paola',
                         style: TextStyle(
                           fontSize: 28,
                           color: Color.fromARGB(255, 252, 123, 3),
                         ),
                       ),
                       const Text(
-                        'sgtes datos:',
+                        'Carnero Francia',
                         style: TextStyle(
                           fontSize: 28,
-                          color: Color.fromARGB(255, 252, 123, 3),
+                          color: Color.fromARGB(255, 187, 93, 4),
                         ),
                       ),
                       Padding(
@@ -111,18 +112,18 @@ class _HomeScreenState extends State<HomeScreen> {
                             Row(
                               children: const [
                                 Text(
-                                  'Denuncia: ',
+                                  'Nacionalidad: ',
                                   style: TextStyle(
                                     fontSize: 16,
                                     color: Color.fromARGB(255, 255, 3, 3),
                                   ),
                                 ),
                                 Text(
-                                  'Doc. policial',
+                                  'Peruana',
                                   style: TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
-                                    color: Color.fromARGB(255, 17, 6, 114),
+                                    color: Color.fromARGB(255, 68, 1, 112),
                                   ),
                                 ),
                               ],
@@ -130,18 +131,18 @@ class _HomeScreenState extends State<HomeScreen> {
                             Row(
                               children: const [
                                 Text(
-                                  'Datos: ',
+                                  'Departamento: ',
                                   style: TextStyle(
                                     fontSize: 16,
                                     color: Color.fromARGB(255, 255, 3, 3),
                                   ),
                                 ),
                                 Text(
-                                  'DNI/P.Nacimiento',
+                                  'Lima',
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
-                                    color: Color.fromARGB(255, 17, 6, 114),
+                                    color: Color.fromARGB(255, 68, 1, 112),
                                   ),
                                 ),
                               ],
@@ -149,18 +150,18 @@ class _HomeScreenState extends State<HomeScreen> {
                             Row(
                               children: const [
                                 Text(
-                                  'Fotos: ',
+                                  'Distrito: ',
                                   style: TextStyle(
                                     fontSize: 16,
                                     color: Color.fromARGB(255, 255, 3, 3),
                                   ),
                                 ),
                                 Text(
-                                  '2 a 3 formato png/pjg',
+                                  'Pueblo Libre',
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
-                                    color: Color.fromARGB(255, 17, 6, 114),
+                                    color: Color.fromARGB(255, 68, 1, 112),
                                   ),
                                 ),
                               ],
@@ -168,18 +169,18 @@ class _HomeScreenState extends State<HomeScreen> {
                             Row(
                               children: const [
                                 Text(
-                                  'Contacto: ',
+                                  'Ocupación: ',
                                   style: TextStyle(
                                     fontSize: 16,
                                     color: Color.fromARGB(255, 255, 3, 3),
                                   ),
                                 ),
                                 Text(
-                                  'Número de celular',
+                                  'Social Manager',
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
-                                    color: Color.fromARGB(255, 17, 6, 114),
+                                    color: Color.fromARGB(255, 68, 1, 112),
                                   ),
                                 ),
                               ],

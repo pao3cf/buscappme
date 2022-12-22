@@ -1,5 +1,3 @@
-import 'package:buscappme/domain/models/busqueda_model.dart';
-import 'package:buscappme/domain/providers/storage_provider.dart';
 import 'package:buscappme/domain/services/auth_service.dart';
 import 'package:buscappme/screen/busquedas/publicar_busqueda_screen.dart';
 import 'package:buscappme/screen/login/tab_login_screen.dart';
@@ -105,7 +103,6 @@ class DrawerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final authService = Provider.of<AuthService>(context, listen: false);
-    final storageProvider = Provider.of<StorageImageProvider>(context);
 
     return SafeArea(
       child: SizedBox(
@@ -117,7 +114,8 @@ class DrawerScreen extends StatelessWidget {
                 leading: SizedBox(
                   child: CircleAvatar(
                     radius: 30,
-                    backgroundImage: AssetImage('assets/logo.png'),
+                    backgroundImage: NetworkImage(
+                        'https://drive.google.com/file/d/11uCr07bYlykuTBxG3CfWT3ZMSBDc7uVV/view?usp=share_link'),
                   ),
                 ),
                 title: Text(
@@ -149,8 +147,6 @@ class DrawerScreen extends StatelessWidget {
                   trailing: sideMenuData['trailing'],
                   onTap: () {
                     if (sideMenuData['action_id'] == 1) {
-                      storageProvider.seleccionarBusqueda = Busqueda(nombre: '', edad: '', ciudad: '', ultimaVisto: '', comunicarseCon: '');
-
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) => const PublicarBusquedaScreen(),
